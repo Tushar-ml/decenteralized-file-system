@@ -86,4 +86,5 @@ def file_directory():
         return df.to_html(header="true",table_id="table")
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port) 

@@ -19,4 +19,4 @@ RUN curl -L https://github.com/storj/storj/releases/latest/download/uplink_linux
 ENV UPLINK_CONFIG='./uplink --config-dir="/app/Storj/Uplink"'
 RUN python3.6 -m pip install -r requirements.txt
 EXPOSE 5000
-CMD ["python3.6","app.py"]
+CMD gunicorn app:app
