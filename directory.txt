@@ -1,0 +1,3 @@
+KIND    CREATED                SIZE    KEY
+OBJ     2022-04-24 20:06:06    123     6de764bba8b946699e5a3aaf6e3ce9d2@directory.txt
+OBJ     2022-04-24 16:15:40    1331    937d13da56a844e3aa58fdde3fc627f6@mood.js

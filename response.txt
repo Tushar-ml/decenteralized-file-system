@@ -1,0 +1,19 @@
+Sharing access to satellite 121RTSDpyNZVcEU84Ticf2L1ntiuUimbWgfATz21tuvgk3vzoA6@ap1.storj.io:7777
+=========== ACCESS RESTRICTIONS ==========================================================
+Download  : Allowed
+Upload    : Disallowed
+Lists     : Allowed
+Deletes   : Disallowed
+NotBefore : No restriction
+NotAfter  : No restriction
+Paths     : sj://anticensorb/15a2d35758f24ba2ac507eac4491121c@directory.txt
+=========== SERIALIZED ACCESS WITH THE ABOVE RESTRICTIONS TO SHARE WITH OTHERS ===========
+Access    : 1YhF2cjanWnmLXUGUxVuz5bkFoETD6LmZptxYkWsjUhjsdC5ypPxUYM2YwWdH4pgM7fKmcY8HW4pNFzCjp5jpUVEmgSWT64NB1SfznxHFvBp2jiQaiAjtphC8t7ZaQd56QSyVWzRZFNnU5Tq86CBBa5i1jXKQLkqibdEMVMBycjAzi3T3QNur4HMu2ifnYbKcZ9oaqqY6Wz6oEfCm4DDdH6BAyp6mpR3nwV5oZng6tZFSxWbWWz5VHJshBegbaD1TT78mCHVaANvZYocQvWzdyZ42YmzhnxXykKpdAbCoWKYfS59aSjYeUPjwczVA7d1Zg51utHpSCfRPELzSKoNhVYEENGLLvNNB7HJ1J5cqPCrUFhS1CnvxWnkZJJyaLS1bB9m4nW9kSUCzEPX362Bk5jG2C4DqXiWmKr9bXv5FYmXXap2hsKB5UP771t1rNwikj7xPqRidPWZfNbuzpP1HQietvcpTE6DR7DoeRrFPtPEBve8Lme6pugrhahdQAVVxSwBvi5mixBnRUJjsCgeEnmN8D6Li9zkz4nD7VKz7sLDTaYosDKwtCxHJrh7pQdwSZF2Rwwwv9c6jjtNrf28MvzSMq6muzVBvsVYRUQ6ftr
+========== CREDENTIALS ===================================================================
+Access Key ID: jumcdiy4m4b7n2nqc2k2cxijv7wa
+Secret Key   : j3lo26jsuqihx3dz6bo6tn2grhb3fgjksiaqslt4sqchn2mr2v5hq
+Endpoint     : https://gateway.us1.storjshare.io
+Public Access:  true
+=========== BROWSER URL ==================================================================
+REMINDER  : Object key must end in '/' when trying to share a prefix
+URL       : https://link.ap1.storjshare.io/s/jumcdiy4m4b7n2nqc2k2cxijv7wa/anticensorb/15a2d35758f24ba2ac507eac4491121c@directory.txt

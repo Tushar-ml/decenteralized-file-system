@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First dApp</title>
+    <style>
+        body {
+          text-align: center;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      
+        div {
+          width: 30%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+        }
+      
+        button {
+          width: 100%;
+          margin: 10px 0px 5px 0px;
+        }
+      </style>
+      <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
+    ></script>
+    <script language="javascript">
+        let ProtectedFileAddress = "0x0472a6d6Ed85dbB7f1C8788D03B395152589bE48";
+        const ProtectedFileABI = [
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "file_id",
+              "type": "string"
+            }
+          ],
+          "name": "removeFile",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "file_id",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_file_name",
+              "type": "string"
+            },
+            {
+              "internalType": "uint32",
+              "name": "_file_size",
+              "type": "uint32"
+            },
+            {
+              "internalType": "string",
+              "name": "_link",
+              "type": "string"
+            }
+          ],
+          "name": "uploadFile",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "file_id",
+              "type": "string"
+            }
+          ],
+          "name": "downloadFile",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "name": "files",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "file_name",
+              "type": "string"
+            },
+            {
+              "internalType": "uint32",
+              "name": "file_size",
+              "type": "uint32"
+            },
+            {
+              "internalType": "string",
+              "name": "link",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "uploadedBy",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "file_id",
+              "type": "string"
+            }
+          ],
+          "name": "getFileInfo",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            },
+            {
+              "internalType": "uint32",
+              "name": "",
+              "type": "uint32"
+            },
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "userId",
+              "type": "address"
+            }
+          ],
+          "name": "getUserInfo",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            },
+            {
+              "internalType": "uint8",
+              "name": "",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint32",
+              "name": "",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "name": "uploaders",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "uploaderId",
+              "type": "address"
+            },
+            {
+              "internalType": "uint8",
+              "name": "upload_count",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint32",
+              "name": "upload_bytes",
+              "type": "uint32"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+        let ProtectedFileContract;
+        let signer;
+        const provider = new ethers.providers.Web3Provider(window.ethereum, "ropsten");
+        provider.send("eth_requestAccounts", []).then(() => {
+        provider.listAccounts().then((accounts) => {
+            signer = provider.getSigner(accounts[0]);
+            ProtectedFileContract = new ethers.Contract(
+            ProtectedFileAddress,
+            ProtectedFileABI,
+            signer
+            );
+        });
+        });
+        async function uploadFile() {
+          const file_id = document.getElementById('fileid').value;
+          const filename = document.getElementById('filename').value;
+          const size = document.getElementById('size').value;
+          const url = document.getElementById('link').value;
+
+          let upload = ProtectedFileContract.uploadFile(file_id, filename, size, url);
+          await upload;
+
+          document.getElementById("fileId").value = document.getElementById('fileid').value;
+          document.getElementById("fileid").value = '';
+          document.getElementById("filename").value='';
+          document.getElementById("size").value='';
+          document.getElementById("link").value='';
+          window.location.href = window.location.origin;
+          
+
+        }
+        async function getUserInfo() {
+        const user_id = document.getElementById('userId').value;
+        const getFile = ProtectedFileContract.getUserInfo(user_id);
+        const file = await getFile;
+        console.log(file);
+        }
+        async function getFileInfo() {
+        const user_id = document.getElementById('fileId').value;
+        const getFile = ProtectedFileContract.getFileInfo(user_id);
+        const file = await getFile;
+        console.log(file);
+        }
+        async function downloadFile() {
+        const user_id = document.getElementById('fileId').value;
+        const getFile = ProtectedFileContract.downloadFile(user_id);
+        const file = await getFile;
+        window.open(file,"_blank");
+        }
+        async function removeFile() {
+        const user_id = document.getElementById('fileId').value;
+        const getFile = ProtectedFileContract.removeFile(user_id);
+        const file = await getFile;
+        console.log(file);
+        }
+    </script>
+  </head>
+  <body>
+    <div>
+        <h1>Decentralized UnCensored System</h1>
+        <p>Upload File:<br></p>
+        <form action = "{{ url_for('uploader') }}" method = "POST" 
+          enctype = "multipart/form-data">
+          <input type = "file" name = "file" />  <input type = "submit"/>
+        </form> 
+        <br><br>
+          Uploaded File Parameters
+          <br><br>
+          Id: <input type=text id='fileid' value={{fileid}} /><br><br>
+          Name: <input type=text id='filename' value={{name}} /><br><br>
+          Size: <input type=text id='size' value={{size}} /><br><br>
+          URL: <input type=text id='link' value={{link}} /><br><br>
+          <button  onclick="uploadFile()">Add to Contract</button>
+        <p>Get User Info:</p>
+        <input id='userId' type='text' placeholder='Enter User Address'/>
+        <button onclick="getUserInfo()">Get User Info</button>
+        <br><br>
+        <p>File Operations:</p>
+        <input id='fileId' type='text' placeholder='Enter File Id'/>
+        <button onclick="getFileInfo()">Get File Info</button>
+        <button onclick="downloadFile()">Download File</button>
+        <button onclick="removeFile()">Remove File</button>
+        <br><br>
+        Go to File Directory:
+        <form action="{{ url_for('file_directory') }}">
+          <input type="submit" value="Go to Directory" />
+        </form>
+      </div>
+  </body>
+</html>
