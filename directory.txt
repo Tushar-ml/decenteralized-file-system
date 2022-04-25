@@ -1,3 +1,7 @@
-KIND    CREATED                SIZE    KEY
-OBJ     2022-04-24 20:06:06    123     6de764bba8b946699e5a3aaf6e3ce9d2@directory.txt
-OBJ     2022-04-24 16:15:40    1331    937d13da56a844e3aa58fdde3fc627f6@mood.js
+KIND    CREATED                SIZE       KEY
+OBJ     2022-04-24 20:11:39    209        15a2d35758f24ba2ac507eac4491121c@directory.txt
+OBJ     2022-04-24 23:40:12    1008099    cd37cdf8933f459ab68ed79919fdafbe@IMG-20220423-WA0001.jpeg
+OBJ     2022-04-24 20:06:06    123        6de764bba8b946699e5a3aaf6e3ce9d2@directory.txt
+OBJ     2022-04-24 23:29:13    42         ef8089f488424ddda926eb0839075333@deployed_address.txt
+OBJ     2022-04-24 23:22:13    209        a1b95e85ef4d4063adc3cbf98f31ce73@directory.txt
+OBJ     2022-04-24 16:15:40    1331       937d13da56a844e3aa58fdde3fc627f6@mood.js

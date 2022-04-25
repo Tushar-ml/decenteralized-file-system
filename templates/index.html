@@ -264,13 +264,13 @@
         const user_id = document.getElementById('userId').value;
         const getFile = ProtectedFileContract.getUserInfo(user_id);
         const file = await getFile;
-        console.log(file);
+        alert("User Id: "+file[0]+"\nUpload Count: "+file[1]+"\nBytes Uploaded: "+file[2]);
         }
         async function getFileInfo() {
         const user_id = document.getElementById('fileId').value;
         const getFile = ProtectedFileContract.getFileInfo(user_id);
         const file = await getFile;
-        console.log(file);
+        alert("Filename: "+file[0]+"\nSize: "+file[1]+"\nUploaded By: "+file[2]);
         }
         async function downloadFile() {
         const user_id = document.getElementById('fileId').value;
@@ -305,6 +305,7 @@
         <p>Get User Info:</p>
         <input id='userId' type='text' placeholder='Enter User Address'/>
         <button onclick="getUserInfo()">Get User Info</button>
+        <div id='userInfo'></div>
         <br><br>
         <p>File Operations:</p>
         <input id='fileId' type='text' placeholder='Enter File Id'/>
