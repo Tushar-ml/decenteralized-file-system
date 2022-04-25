@@ -8,7 +8,7 @@ Before Clicking on above link, let's walthrough the prerequisites to test:
 * Enable Metamask or prefered wallet extension in your browser. [Metamask Extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 * Switch to Ropsten Test Network.
 * Ask for Test Ether from Faucets, if you don't have any. [Test Ether for Ropsten](https://faucet.egorfine.com/)
-* Open the above app and enjoy.
+* Open the above app and enjoy. (Don't Judge on UI, I am a Backend Guy :sweat_smile:)
 
 ## Features:
 * **Upload File:** You can upload the file, and press submit. After that Click on Add to Contract, to add it in blockchain. Some Gas Fees will be taken.
